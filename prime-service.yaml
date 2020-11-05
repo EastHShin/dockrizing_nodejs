@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-11-05T15:00:05Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: prime
+  name: prime-service
+  namespace: default
+  resourceVersion: "23303"
+  selfLink: /api/v1/namespaces/default/services/prime-service
+  uid: e5f99c47-f6e4-4e96-983f-9b1cd60b5e8d
+spec:
+  clusterIP: 10.4.0.112
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30720
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: prime
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 34.64.209.98
